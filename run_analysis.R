@@ -34,11 +34,11 @@ write.csv(mean_std, file = "mean_std.csv")
 
 # [4] Appropriately labels the data set with descriptive variable names.
 # Finished in the previous steps.
-my_dt
+mean_std
 
 # [5] From the data set in step 4, creates a second, independent tidy data set 
 # with the average of each variable for each activity and each subject.
-new_dt <- select(my_dt, -group)
+new_dt <- select(mean_std, -group)
 new_dt <- group_by(new_dt, subject, label_y)
 new_dt <- summarize_all(new_dt, funs(mean))
 write.csv(new_dt, file = "new_dt.csv")
